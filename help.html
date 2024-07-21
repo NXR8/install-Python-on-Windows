@@ -1,148 +1,611 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="ar" dir="rtl">
 
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
-    <title>إعداد بيئة عمل لغة البرمجة بايثون على ويندوز باستخدام VSCode | install-Python-on-Windows</title>
-    <meta name="generator" content="Jekyll v3.9.5" />
-    <meta property="og:title" content="إعداد بيئة عمل لغة البرمجة بايثون على ويندوز باستخدام VSCode" />
-    <meta property="og:locale" content="en_US" />
-    <link rel="canonical" href="https://nxr8.github.io/install-Python-on-Windows/" />
-    <meta property="og:url" content="https://nxr8.github.io/install-Python-on-Windows/" />
-    <meta property="og:site_name" content="install-Python-on-Windows" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="إعداد بيئة عمل لغة البرمجة بايثون على ويندوز باستخدام VSCode" />
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebSite","headline":"إعداد بيئة عمل لغة البرمجة بايثون على ويندوز باستخدام VSCode","name":"install-Python-on-Windows","url":"https://nxr8.github.io/install-Python-on-Windows/"}</script>
-    <!-- End Jekyll SEO tag -->
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>install-Python-on-Windows</title>
 
-    <link rel="stylesheet" href="/install-Python-on-Windows/assets/css/style.css?v=9441639212c3ea3ffe90f71e7b10aa871060b509">
-    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+<style class=anchorjs>
+    .anchorjs-link {
+        opacity: 0;
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased
+    }
 
-    <!-- Setup Google Analytics -->
+    :hover>.anchorjs-link,
+    .anchorjs-link:focus {
+        opacity: 1
+    }
 
-    <!-- You can set your favicon here -->
-    <!-- link rel="shortcut icon" type="image/x-icon" href="/install-Python-on-Windows/favicon.ico" -->
+    [data-anchorjs-icon]::after {
+        content: attr(data-anchorjs-icon)
+    }
 
-    <!-- end custom head snippets -->
+    @font-face {
+        font-family: anchorjs-icons;
+        src: url(data:n/a;base64,AAEAAAALAIAAAwAwT1MvMg8yG2cAAAE4AAAAYGNtYXDp3gC3AAABpAAAAExnYXNwAAAAEAAAA9wAAAAIZ2x5ZlQCcfwAAAH4AAABCGhlYWQHFvHyAAAAvAAAADZoaGVhBnACFwAAAPQAAAAkaG10eASAADEAAAGYAAAADGxvY2EACACEAAAB8AAAAAhtYXhwAAYAVwAAARgAAAAgbmFtZQGOH9cAAAMAAAAAunBvc3QAAwAAAAADvAAAACAAAQAAAAEAAHzE2p9fDzz1AAkEAAAAAADRecUWAAAAANQA6R8AAAAAAoACwAAAAAgAAgAAAAAAAAABAAADwP/AAAACgAAA/9MCrQABAAAAAAAAAAAAAAAAAAAAAwABAAAAAwBVAAIAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAMCQAGQAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAQAAg//0DwP/AAEADwABAAAAAAQAAAAAAAAAAAAAAIAAAAAAAAAIAAAACgAAxAAAAAwAAAAMAAAAcAAEAAwAAABwAAwABAAAAHAAEADAAAAAIAAgAAgAAACDpy//9//8AAAAg6cv//f///+EWNwADAAEAAAAAAAAAAAAAAAAACACEAAEAAAAAAAAAAAAAAAAxAAACAAQARAKAAsAAKwBUAAABIiYnJjQ3NzY2MzIWFxYUBwcGIicmNDc3NjQnJiYjIgYHBwYUFxYUBwYGIwciJicmNDc3NjIXFhQHBwYUFxYWMzI2Nzc2NCcmNDc2MhcWFAcHBgYjARQGDAUtLXoWOR8fORYtLTgKGwoKCjgaGg0gEhIgDXoaGgkJBQwHdR85Fi0tOAobCgoKOBoaDSASEiANehoaCQkKGwotLXoWOR8BMwUFLYEuehYXFxYugC44CQkKGwo4GkoaDQ0NDXoaShoKGwoFBe8XFi6ALjgJCQobCjgaShoNDQ0NehpKGgobCgoKLYEuehYXAAAADACWAAEAAAAAAAEACAAAAAEAAAAAAAIAAwAIAAEAAAAAAAMACAAAAAEAAAAAAAQACAAAAAEAAAAAAAUAAQALAAEAAAAAAAYACAAAAAMAAQQJAAEAEAAMAAMAAQQJAAIABgAcAAMAAQQJAAMAEAAMAAMAAQQJAAQAEAAMAAMAAQQJAAUAAgAiAAMAAQQJAAYAEAAMYW5jaG9yanM0MDBAAGEAbgBjAGgAbwByAGoAcwA0ADAAMABAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAH//wAP)format("truetype")
+    }
+</style>
+<style>
+    /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+    html {
+        font-family: sans-serif;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%
+    }
 
-  </head>
-  <body>
+    body {
+        margin: 0
+    }
+
+    a {
+        background-color: transparent
+    }
+
+    a:active,
+    a:hover {
+        outline-width: 0
+    }
+
+    h1 {
+        margin: 0.67em 0
+    }
+
+    ::-webkit-input-placeholder {
+        color: inherit;
+        opacity: 0.54
+    }
+
+    ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        font: inherit
+    }
+
+    * {
+        box-sizing: border-box
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 14px;
+        line-height: 1.5;
+        color: #24292e;
+        background-color: #fff
+    }
+
+    a {
+        color: #0366d6;
+        text-decoration: none
+    }
+
+    a:hover {
+        text-decoration: underline
+    }
+
+    strong {
+        font-weight: 600
+    }
+
+    code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace
+    }
+
+    pre {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0
+        }
+
+        100% {
+            opacity: 1
+        }
+    }
+
+    @keyframes fade-out {
+        0% {
+            opacity: 1
+        }
+
+        100% {
+            opacity: 0
+        }
+    }
+
+    @keyframes fade-up {
+        0% {
+            opacity: 0.8;
+            transform: translateY(100%)
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0)
+        }
+    }
+
+    @keyframes fade-down {
+        0% {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        100% {
+            opacity: 0.5;
+            transform: translateY(100%)
+        }
+    }
+
+    @keyframes grow-x {
+        to {
+            width: 100%
+        }
+    }
+
+    @keyframes shrink-x {
+        to {
+            width: 0%
+        }
+    }
+
+    @keyframes scale-in {
+        0% {
+            opacity: 0;
+            transform: scale(0.5)
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1)
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            opacity: 0.3
+        }
+
+        10% {
+            opacity: 1
+        }
+
+        100% {
+            opacity: 0.3
+        }
+    }
+
+    @keyframes pulse-in {
+        0% {
+            transform: scale3d(1, 1, 1)
+        }
+
+        50% {
+            transform: scale3d(1.1, 1.1, 1.1)
+        }
+
+        100% {
+            transform: scale3d(1, 1, 1)
+        }
+    }
+
+    @media (min-width:544px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:1012px) {}
+
+    @media (min-width:1280px) {}
+
+    @media (min-width:544px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:1012px) {}
+
+    @media (min-width:1280px) {}
+
+    @media (min-width:544px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:1012px) {}
+
+    @media (min-width:1280px) {}
+
+    @media (min-width:544px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:1012px) {}
+
+    @media (min-width:1280px) {}
+
+    .my-5 {
+        margin-top: 32px !important;
+        margin-bottom: 32px !important
+    }
+
+    @media (min-width:544px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:1012px) {}
+
+    @media (min-width:1280px) {}
+
+    .px-3 {
+        padding-right: 16px !important;
+        padding-left: 16px !important
+    }
+
+    @media (min-width:544px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:1012px) {}
+
+    @media (min-width:1280px) {}
+
+    @media (min-width:544px) {}
+
+    @media (min-width:1012px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:544px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:1012px) {}
+
+    @media (min-width:1280px) {}
+
+    @media (min-width:544px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:1012px) {}
+
+    @media (min-width:1280px) {}
+
+    @media (max-width:544px) {}
+
+    @media (min-width:544px) and (max-width:768px) {}
+
+    @media (min-width:768px) and (max-width:1012px) {}
+
+    @media (min-width:1012px) {}
+
+    .container-lg {
+        max-width: 1012px;
+        margin-right: auto;
+        margin-left: auto
+    }
+
+    @media (min-width:544px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:1012px) {}
+
+    @media (min-width:1280px) {}
+
+    @media (min-width:544px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:1012px) {}
+
+    @media (min-width:1280px) {}
+
+    @media (min-width:544px) {}
+
+    @media (min-width:768px) {}
+
+    @media (min-width:1012px) {}
+
+    @media (min-width:1280px) {}
+
+    .markdown-body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word
+    }
+
+    .markdown-body::before {
+        display: table;
+        content: ""
+    }
+
+    .markdown-body::after {
+        display: table;
+        clear: both;
+        content: ""
+    }
+
+    .markdown-body>*:first-child {
+        margin-top: 0 !important
+    }
+
+    .markdown-body>*:last-child {
+        margin-bottom: 0 !important
+    }
+
+    .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none
+    }
+
+    .markdown-body p,
+    .markdown-body ul,
+    .markdown-body ol,
+    .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px
+    }
+
+    .markdown-body h1,
+    .markdown-body h2,
+    .markdown-body h3 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25
+    }
+
+    .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef
+    }
+
+    .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef
+    }
+
+    .markdown-body h3 {
+        font-size: 1.25em
+    }
+
+    .markdown-body ul,
+    .markdown-body ol {
+        padding-left: 2em
+    }
+
+    .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+
+    .markdown-body li>p {
+        margin-top: 16px
+    }
+
+    .markdown-body li+li {
+        margin-top: .25em
+    }
+
+    .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27, 31, 35, 0.05);
+        border-radius: 3px
+    }
+
+    .markdown-body pre {
+        word-wrap: normal
+    }
+
+    .markdown-body pre>code {
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent
+    }
+
+    .markdown-body .highlight {
+        margin-bottom: 16px
+    }
+
+    .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal
+    }
+
+    .markdown-body .highlight pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px
+    }
+
+    .markdown-body pre code {
+        display: inline;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0
+    }
+
+    .highlight .nb {
+        color: #0086B3
+    }
+
+    .highlight .nt {
+        color: #000080
+    }
+
+    .highlight {
+        background-color: #f8f8f8
+    }
+</style>
+<style>
+    img[src="data:,"],
+    source[src="data:,"] {
+        display: none !important
+    }
+</style>
+</head>
+
+<body>
     <div class="container-lg px-3 my-5 markdown-body">
-      
-      <h1><a href="https://nxr8.github.io/install-Python-on-Windows/">install-Python-on-Windows</a></h1>
-      
 
-      <h1 id="إعداد-بيئة-عمل-لغة-البرمجة-بايثون-على-ويندوز-باستخدام-vscode">إعداد بيئة عمل لغة البرمجة بايثون على ويندوز باستخدام VSCode</h1>
+        <h1><a href=https://github.com/NXR8 />NXR8</a></h1>
 
-      <p dir="rtl">هذه الإرشادات تساعدك على إعداد بيئة تطوير للغة البرمجة بايثون على نظام التشغيل ويندوز باستخدام Visual Studio Code.</p>
-
-      <h2 id="المتطلبات">المتطلبات</h2>
-
-      <ul>
-        <li>نظام التشغيل: Windows 10 أو أحدث</li>
-        <li>اتصال بالإنترنت</li>
-      </ul>
-
-      <h2 id="الخطوات">الخطوات</h2>
-
-      <h3 id="1-تحميل-وتثبيت-python">1. تحميل وتثبيت Python</h3>
-
-      <ol>
-        <li><strong>تحميل Python:</strong>
-          <ul dir="rtl">
-            <li>افتح متصفح الإنترنت واذهب إلى الموقع الرسمي لـ <a href="https://www.python.org/">Python</a>.</li>
-            <li>انقر على “Downloads” واختر “Download Python for Windows”.</li>
-          </ul>
-        </li>
-        <li><strong>تثبيت Python:</strong>
-          <ul dir="rtl">
-            <li>بعد تنزيل الملف التنفيذي (مثل <code class="language-plaintext highlighter-rouge">python-3.x.x.exe</code>)، انقر عليه لتشغيله.</li>
-            <li>في نافذة التثبيت، تأكد من تحديد الخيار “Add Python to PATH” ثم انقر على “Install Now”.</li>
-            <li>بعد انتهاء التثبيت، يمكنك التحقق من تثبيت Python بفتح موجه الأوامر (Command Prompt) وكتابة:
-              <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python <span class="nt">--version</span>
-</code></pre></div>              </div>
-              <p dir="rtl">إذا تم تثبيته بشكل صحيح، سترى إصدار Python المثبت.</p>
+        <h1 dir="rtl" id=إعداد-بيئة-عمل-لغة-البرمجة-بايثون-على-ويندوز-باستخدام-vscode>إعداد بيئة عمل لغة البرمجة بايثون
+            على ويندوز باستخدام VSCode</h1>
+        <p dir=rtl>هذه الإرشادات تساعدك على إعداد بيئة تطوير للغة البرمجة بايثون على نظام التشغيل ويندوز باستخدام Visual
+            Studio Code.</p>
+        <h2 id=المتطلبات dir=rtl>المتطلبات<a class=anchorjs-link aria-label=Anchor
+                style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h2>
+        <ul dir=rtl>
+            <li>نظام التشغيل: Windows 10 أو أحدث</li>
+            <li>اتصال بالإنترنت</li>
+        </ul>
+        <h2 dir=rtl id=الخطوات>الخطوات<a class=anchorjs-link aria-label=Anchor
+                style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h2>
+        <h3 dir=rtl id=1-تحميل-وتثبيت-python>1. تحميل وتثبيت Python<a class=anchorjs-link aria-label=Anchor
+                style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+        <ol>
+            <li dir=rtl><strong>تحميل Python:</strong>
+                <ul dir=rtl>
+                    <li dir=rtl>افتح متصفح الإنترنت واذهب إلى الموقع الرسمي لـ <a
+                            href=https://www.python.org />Python</a>.</li>
+                    <li dir=rtl>انقر على “Downloads” واختر “Download Python for Windows”.</li>
+                </ul>
             </li>
-          </ul>
-        </li>
-      </ol>
-
-      <h3 id="2-تحميل-وتثبيت-visual-studio-code-vscode">2. تحميل وتثبيت Visual Studio Code (VSCode)</h3>
-
-      <ol>
-        <li><strong>تحميل VSCode:</strong>
-          <ul dir="rtl">
-            <li>اذهب إلى الموقع الرسمي لـ <a href="https://code.visualstudio.com/">Visual Studio Code</a>.</li>
-            <li>انقر على “Download for Windows”.</li>
-          </ul>
-        </li>
-        <li><strong>تثبيت VSCode:</strong>
-          <ul dir="rtl">
-            <li>بعد تنزيل الملف التنفيذي (<code class="language-plaintext highlighter-rouge">VSCodeSetup-x.x.x.exe</code>)، انقر عليه لتشغيله.</li>
-            <li>اتبع التعليمات الظاهرة على الشاشة لتثبيت البرنامج.</li>
-          </ul>
-        </li>
-      </ol>
-
-      <h3 id="3-إعداد-vscode-لتطوير-python">3. إعداد VSCode لتطوير Python</h3>
-
-      <ol>
-        <li><strong>تثبيت ملحق Python لـ VSCode:</strong>
-          <ul dir="rtl">
-            <li>افتح VSCode.</li>
-            <li>انقر على أيقونة الملحقات (Extensions) الموجودة على الشريط الجانبي (أو اضغط <code class="language-plaintext highlighter-rouge">Ctrl+Shift+X</code>).</li>
-            <li>في شريط البحث، اكتب <code class="language-plaintext highlighter-rouge">Python</code> وابحث عنه.</li>
-            <li>اختر الملحق الرسمي من Microsoft (غالبًا سيكون الأول في القائمة) وانقر على “Install”.</li>
-          </ul>
-        </li>
-        <li><strong>تكوين بيئة Python في VSCode:</strong>
-          <ul dir="rtl">
-            <li>افتح ملف Python جديد أو قم بإنشاء مشروع جديد (انقر على <code class="language-plaintext highlighter-rouge">File</code> &gt; <code class="language-plaintext highlighter-rouge">New File</code> واكتب رمز Python ثم احفظ الملف بامتداد <code class="language-plaintext highlighter-rouge">.py</code>).</li>
-            <li>إذا كانت هناك إصدارات متعددة من Python مثبتة على جهازك، اختر الإصدار الذي تريد استخدامه عن طريق الضغط على <code class="language-plaintext highlighter-rouge">Ctrl+Shift+P</code> لفتح لوحة الأوامر، ثم اكتب <code class="language-plaintext highlighter-rouge">Python: Select Interpreter</code> واختر الإصدار المطلوب.</li>
-          </ul>
-        </li>
-      </ol>
-
-      <h3 id="4-تشغيل-كود-python-في-vscode">4. تشغيل كود Python في VSCode</h3>
-
-      <ol>
-        <li><strong>فتح ملف Python:</strong>
-          <ul dir="rtl">
-            <li>افتح أو أنشئ ملف Python (.py) في VSCode.</li>
-          </ul>
-        </li>
-        <li><strong>تشغيل الكود:</strong>
-          <ul dir="rtl">
-            <li>لتشغيل كود Python، يمكنك ببساطة فتح الملف والنقر على زر التشغيل الصغير في الزاوية العلوية اليمنى من النافذة، أو يمكنك الضغط على <code class="language-plaintext highlighter-rouge">Ctrl+F5</code> لتشغيل الكود دون تصحيح (debug).</li>
-          </ul>
-        </li>
-      </ol>
-
-      <h3 id="5-تثبيت-الحزم-والمكتبات-الإضافية">5. تثبيت الحزم والمكتبات الإضافية</h3>
-
-      <ol>
-        <li><strong>تثبيت الحزم باستخدام pip:</strong>
-          <ul dir="rtl">
-            <li>افتح موجه الأوامر في VSCode (يمكنك فتحه بالضغط على <code class="language-plaintext highlighter-rouge">Ctrl+</code>`).</li>
-            <li>لاستخدام مكتبات إضافية في مشروعك، يمكنك تثبيتها باستخدام <code class="language-plaintext highlighter-rouge">pip</code>. على سبيل المثال، لتثبيت مكتبة NumPy، اكتب:
-              <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>numpy
-</code></pre></div>              </div>
+            <li dir=rtl><strong>تثبيت Python:</strong>
+                <ul dir=rtl>
+                    <li dir=rtl>بعد تنزيل الملف التنفيذي (مثل <code
+                            class="language-plaintext highlighter-rouge">python-3.x.x.exe</code>)، انقر عليه لتشغيله.
+                    </li>
+                    <li dir=rtl>في نافذة التثبيت، تأكد من تحديد الخيار “Add Python to PATH” ثم انقر على “Install Now”.
+                    </li>
+                    <li dir=rtl>بعد انتهاء التثبيت، يمكنك التحقق من تثبيت Python بفتح موجه الأوامر (Command Prompt)
+                        وكتابة:
+                        <div dir=ltr class="language-sh highlighter-rouge">
+                            <div class=highlight>
+                                <pre class=highlight><code>python <span class=nt>--version</span>
+</code></pre>
+                            </div>
+                        </div>
+                        <p dir=rtl>إذا تم تثبيته بشكل صحيح، سترى إصدار Python المثبت.</p>
+                    </li>
+                </ul>
             </li>
-          </ul>
-        </li>
-      </ol>
-
-      <h2 id="انتهى">انتهى!</h2>
-
-      <p dir="rtl">باتباع هذه الخطوات، ستكون قد أعددت بيئة تطوير Python على نظام Windows باستخدام VSCode. الآن يمكنك البدء في كتابة وتشغيل أكواد Python بشكل فعال.</p>
-
+        </ol>
+        <h3 id=2-تحميل-وتثبيت-visual-studio-code-vscode>2. تحميل وتثبيت Visual Studio Code (VSCode)<a
+                class=anchorjs-link aria-label=Anchor style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+        <ol>
+            <li><strong>تحميل VSCode:</strong>
+                <ul dir=rtl>
+                    <li>اذهب إلى الموقع الرسمي لـ <a href=https://code.visualstudio.com />Visual Studio Code</a>.</li>
+                    <li>انقر على “Download for Windows”.</li>
+                </ul>
+            </li>
+            <li><strong>تثبيت VSCode:</strong>
+                <ul dir=rtl>
+                    <li>بعد تنزيل الملف التنفيذي (<code
+                            class="language-plaintext highlighter-rouge">VSCodeSetup-x.x.x.exe</code>)، انقر عليه
+                        لتشغيله.</li>
+                    <li>اتبع التعليمات الظاهرة على الشاشة لتثبيت البرنامج.</li>
+                </ul>
+            </li>
+        </ol>
+        <h3 id=3-إعداد-vscode-لتطوير-python>3. إعداد VSCode لتطوير Python<a class=anchorjs-link aria-label=Anchor
+                style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+        <ol>
+            <li><strong>تثبيت ملحق Python لـ VSCode:</strong>
+                <ul dir=rtl>
+                    <li>افتح VSCode.</li>
+                    <li>انقر على أيقونة الملحقات (Extensions) الموجودة على الشريط الجانبي (أو اضغط <code
+                            class="language-plaintext highlighter-rouge">Ctrl+Shift+X</code>).</li>
+                    <li>في شريط البحث، اكتب <code class="language-plaintext highlighter-rouge">Python</code> وابحث عنه.
+                    </li>
+                    <li>اختر الملحق الرسمي من Microsoft (غالبًا سيكون الأول في القائمة) وانقر على “Install”.</li>
+                </ul>
+            </li>
+            <li><strong>تكوين بيئة Python في VSCode:</strong>
+                <ul dir=rtl>
+                    <li>افتح ملف Python جديد أو قم بإنشاء مشروع جديد (انقر على <code
+                            class="language-plaintext highlighter-rouge">File</code> &gt; <code
+                            class="language-plaintext highlighter-rouge">New File</code> واكتب رمز Python ثم احفظ الملف
+                        بامتداد <code class="language-plaintext highlighter-rouge">.py</code>).</li>
+                    <li>إذا كانت هناك إصدارات متعددة من Python مثبتة على جهازك، اختر الإصدار الذي تريد استخدامه عن طريق
+                        الضغط على <code class="language-plaintext highlighter-rouge">Ctrl+Shift+P</code> لفتح لوحة
+                        الأوامر، ثم اكتب <code
+                            class="language-plaintext highlighter-rouge">Python: Select Interpreter</code> واختر الإصدار
+                        المطلوب.</li>
+                </ul>
+            </li>
+        </ol>
+        <h3 id=4-تشغيل-كود-python-في-vscode>4. تشغيل كود Python في VSCode<a class=anchorjs-link aria-label=Anchor
+                style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+        <ol>
+            <li><strong>فتح ملف Python:</strong>
+                <ul dir=rtl>
+                    <li>افتح أو أنشئ ملف Python (.py) في VSCode.</li>
+                </ul>
+            </li>
+            <li><strong>تشغيل الكود:</strong>
+                <ul dir=rtl>
+                    <li>لتشغيل كود Python، يمكنك ببساطة فتح الملف والنقر على زر التشغيل الصغير في الزاوية العلوية اليمنى
+                        من النافذة، أو يمكنك الضغط على <code class="language-plaintext highlighter-rouge">Ctrl+F5</code>
+                        لتشغيل الكود دون تصحيح (debug).</li>
+                </ul>
+            </li>
+        </ol>
+        <h3 id=5-تثبيت-الحزم-والمكتبات-الإضافية>5. تثبيت الحزم والمكتبات الإضافية<a class=anchorjs-link aria-label=Anchor style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+        <ol>
+            <li><strong>تثبيت الحزم باستخدام pip:</strong>
+                <ul dir=rtl>
+                    <li>افتح موجه الأوامر في VSCode (يمكنك فتحه بالضغط على <code class="language-plaintext highlighter-rouge">Ctrl+</code>`).</li>
+                    <li>لاستخدام مكتبات إضافية في مشروعك، يمكنك تثبيتها باستخدام <code class="language-plaintext highlighter-rouge">pip</code>. على سبيل المثال، لتثبيت مكتبة
+                        NumPy، اكتب:
+                        <div class="language-sh highlighter-rouge">
+                            <div class=highlight>
+                                <pre class=highlight><code>pip <span class=nb>install </span>numpy
+</code></pre>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+        <h2 id=انتهى>انتهى!<a class=anchorjs-link aria-label=Anchor style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h2>
+        <p dir=rtl>باتباع هذه الخطوات، ستكون قد أعددت بيئة تطوير Python على نظام Windows باستخدام VSCode. الآن يمكنك
+            البدء في كتابة وتشغيل أكواد Python بشكل فعال.</p>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
-    <script>anchors.add();</script>
-  </body>
-</html>
